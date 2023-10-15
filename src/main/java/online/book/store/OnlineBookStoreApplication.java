@@ -1,12 +1,12 @@
 package online.book.store;
 
+import java.math.BigDecimal;
 import online.book.store.model.Book;
 import online.book.store.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class OnlineBookStoreApplication {
@@ -17,15 +17,16 @@ public class OnlineBookStoreApplication {
         SpringApplication.run(OnlineBookStoreApplication.class, args);
     }
 
-    @Bean
     public CommandLineRunner commandLineRunner() {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
                 Book book = new Book();
                 book.setDescription("descr");
+                book.setIsbn("isbn");
+                book.setTitle("title");
+                book.setPrice(BigDecimal.valueOf(6));
             }
         };
     }
-
 }
